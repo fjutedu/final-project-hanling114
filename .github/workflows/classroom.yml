@@ -1,0 +1,38 @@
+name: Autograding Tests
+'on':
+- push
+- repository_dispatch
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: 文件结构检查
+      id: ''
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: 文件结构检查
+        setup-command: ''
+        command: pytest -q tests/test_repro.py::test_can_run
+        timeout: 20
+    - name: 基础运行测试
+      id: ''
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: 基础运行测试
+        setup-command: ''
+        command: python evaluate.py --enroll tests/sample/enroll.wav --text tests/sample/prompt.txt
+          --out out/out.wav
+        timeout: 40
+    - name: Autograding Reporter
+      uses: classroom-resources/autograding-grading-reporter@v1
+      env:
+        _RESULTS: "${{steps..outputs.result}}"
+      with:
+        runners: ","
