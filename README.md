@@ -95,6 +95,7 @@
 # 安装依赖（示例）
 pip install -r requirements.txt
 
+
 # 统一评测入口（会调用你的 student_generate.py）
 python evaluate.py --enroll tests/sample/enroll.wav --text tests/sample/prompt.txt --out out/out.wav
 ```
