@@ -99,12 +99,9 @@ pip install -r requirements.txt
 windows下载地址：https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-full-shared.7z
 模型权重下载命令：
 git lfs install
-git clone https://huggingface.co/lj1995/GPT-SoVITS temp_model
-cd temp_model
+git clone https://huggingface.co/lj1995/GPT-SoVITS model
+cd model
 git lfs pull
-cd ..
-Move-Item -Path temp_model\* -Destination model\ -Force
-rm -rf temp_model
 
 # 统一评测入口（会调用你的 student_generate.py）
 python evaluate.py --enroll tests/sample/enroll.wav --text tests/sample/prompt.txt --out out/out.wav
