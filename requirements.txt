@@ -3,6 +3,7 @@ scipy
 torch
 torchaudio
 librosa==0.10.2
+soundfile
 numba
 transformers>=4.43,<=4.50
 sentencepiece
@@ -13,6 +14,9 @@ cn2an
 jieba
 split-lang
 fast_langdetect>=0.3.1
+rotary_embedding_torch
+x_transformers
+peft
 ffmpeg-python
 av>=11
 PyYAML
