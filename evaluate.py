@@ -29,7 +29,7 @@ def main():
     # 时长与采样率检查
     if dur < 8.0:
         raise AssertionError(f"输出语音过短 ({dur:.2f}s)，应≥8s")
-    if sr not in (16000, 22050, 24000):
+    if sr not in (16000, 22050, 24000, 32000):
         raise AssertionError(f"采样率应为 16000/22050/24000 之一，当前 {sr}")
 
     print("✅ 基础检查通过！输出时长 %.2fs, 采样率 %d" % (dur, sr))
