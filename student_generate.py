@@ -6,6 +6,8 @@ import soundfile as sf
 rel_path = "./FFmpeg/bin"
 abs_path = os.path.abspath(rel_path)
 os.environ["PATH"] += os.pathsep + abs_path
+path = "model/fast_langdetect"
+os.makedirs(path, exist_ok=True)
 try:
     import jieba_fast
 except ImportError:
